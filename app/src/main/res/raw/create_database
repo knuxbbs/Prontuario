@@ -1,0 +1,64 @@
+CREATE TABLE `Paciente` (
+  IdPaciente     INTEGER      NOT NULL PRIMARY KEY,
+  Nome           VARCHAR(150) NOT NULL,
+  DataNascimento DATETIME     NOT NULL,
+  Sexo           char         NOT NULL,
+  Peso           FLOAT        NOT NULL,
+  Altura         FLOAT        NOT NULL
+);
+
+CREATE TABLE `Medico` (
+  CRM  number       NOT NULL PRIMARY KEY,
+  Nome VARCHAR(150) NOT NULL
+);
+
+CREATE TABLE `Consulta` (
+  Paciente_id  INTEGER  NOT NULL PRIMARY KEY,
+  Medico_id    INTEGER  NOT NULL PRIMARY KEY,
+  DataConsulta DATETIME NOT NULL PRIMARY KEY,
+  FOREIGN KEY (Paciente) REFERENCES Paciente (IdPaciente),
+  FOREIGN KEY (Medico_id) REFERENCES Medico (CRM)
+);
+
+CREATE TABLE `Exame` (
+  IdExame     INTEGER      NOT NULL PRIMARY KEY,
+  Tipo        VARCHAR(100) NOT NULL,
+  Resultado   TEXT,
+  Consulta_id INTEGER,
+  FOREIGN KEY (Consulta_id) REFERENCES Consulta (Paciente_id, Medico_id, DataConsulta)
+);
+
+CREATE TABLE `Patologia` (
+  SID  INTEGER      NOT NULL PRIMARY KEY,
+  Nome VARCHAR(150) NOT NULL
+);
+
+CREATE TABLE `Medicamento` (
+  IdMedicamento INTEGER      NOT NULL PRIMARY KEY,
+  Nome          VARCHAR(150) NOT NULL
+);
+
+CREATE TABLE `Diagnostico` (
+  Consulta_id  INTEGER NOT NULL PRIMARY KEY,
+  Patologia_id INTEGER,
+  FOREIGN KEY (Consulta_id) REFERENCES Consulta (Paciente_id, Medico_id, DataConsulta),
+  FOREIGN KEY (Patologia_id) REFERENCES Patologia (SID)
+);
+
+CREATE TABLE `Tratamento` (
+  IdTratamento   INTEGER  NOT NULL PRIMARY KEY,
+  DataInicio     DATETIME NOT NULL,
+  DataFim        DATETIME NOT NULL,
+  Dieta          TEXT,
+  Medicamento_id INTEGER,
+  Diagnostico_id INTEGER  NOT NULL,
+  FOREIGN KEY (Medicamento_id) REFERENCES Medicamento (IdMedicamento),
+  FOREIGN KEY (Diagnostico_id) REFERENCES Diagnostico (Consulta_id)
+);
+
+CREATE TABLE `EvolucaoTratamento` (
+  Consulta_id   INTEGER NOT NULL PRIMARY KEY,
+  Tratamento_id INTEGER NOT NULL PRIMARY KEY,
+  FOREIGN KEY (Consulta_id) REFERENCES Consulta (Paciente_id, Medico_id, DataConsulta),
+  FOREIGN KEY (Tratamento_id) REFERENCES Tratamento (IdTratamento)
+);
