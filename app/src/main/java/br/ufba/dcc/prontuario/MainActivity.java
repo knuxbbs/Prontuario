@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
         ListView listViewActivities = (ListView) findViewById(R.id.lista_activities);
 
         String[] mainActivityOptions = new String[]{"Consultas", "Exames", "Tratamentos"};
-        
+
         initListView(mainActivityOptions);
 
         registerForContextMenu(listViewActivities);
