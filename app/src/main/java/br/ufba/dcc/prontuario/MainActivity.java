@@ -8,7 +8,6 @@ import br.ufba.dcc.prontuario.dao.PacienteDao;
 import br.ufba.dcc.prontuario.domain.Paciente;
 import br.ufba.dcc.prontuario.util.DbFactory;
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -22,16 +21,33 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ListView listViewPacientes = (ListView) findViewById(R.id.lista_pacientes);
+        ListView listViewActivities = (ListView) findViewById(R.id.lista_activities);
 
-        fillDatabase();
-        initListView();
+        String[] mainActivityOptions = new String[]{"Consultas", "Exames", "Tratamentos"};
+        
+        initListView(mainActivityOptions);
 
-        registerForContextMenu(listViewPacientes);
+        registerForContextMenu(listViewActivities);
     }
 
-    private void fillDatabase(){
-        if(!pacienteDao.listar().isEmpty()) return;
+    private void initListView(String[] activityOptions) {
+        ListView listViewActivities = (ListView) findViewById(R.id.lista_activities);
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, activityOptions);
+
+        listViewActivities.setAdapter(adapter);
+    }
+
+    private void initListView(List<Paciente> listaPaciente) {
+        ListView listViewPacientes = (ListView) findViewById(R.id.lista_activities);
+
+        ArrayAdapter<Paciente> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, listaPaciente);
+
+        listViewPacientes.setAdapter(adapter);
+    }
+
+    private void fillDatabase() {
+        if (!pacienteDao.listar().isEmpty()) return;
 
         Paciente paciente = new Paciente();
         paciente.setNome("Bruno");
@@ -68,15 +84,5 @@ public class MainActivity extends AppCompatActivity {
         paciente.setAltura((float) 1.8);
 
         pacienteDao.inserir(paciente);
-    }
-
-    private void initListView() {
-        List<Paciente> listaPaciente = pacienteDao.listar();
-
-        ListView listViewPacientes = (ListView) findViewById(R.id.lista_pacientes);
-
-        ArrayAdapter<Paciente> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, listaPaciente);
-
-        listViewPacientes.setAdapter(adapter);
     }
 }

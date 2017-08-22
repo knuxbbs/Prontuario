@@ -8,7 +8,7 @@
         tools:context="br.ufba.dcc.prontuario.MainActivity">
 
     <ListView
-            android:id="@+id/lista_pacientes"
+            android:id="@+id/lista_activities"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
