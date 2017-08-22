@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file:///mnt/home/marx/AndroidStudioProjects/Prontuario/Prontuario.iml" filepath="/mnt/home/marx/AndroidStudioProjects/Prontuario/Prontuario.iml" />
-      <module fileurl="file:///mnt/home/marx/AndroidStudioProjects/Prontuario/app/app.iml" filepath="/mnt/home/marx/AndroidStudioProjects/Prontuario/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Prontuario-master.iml" filepath="$PROJECT_DIR$/Prontuario-master.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
 </project>
