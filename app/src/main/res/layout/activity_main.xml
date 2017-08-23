@@ -5,10 +5,10 @@
         android:id="@+id/activity_main"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context="br.ufba.dcc.prontuario.MainActivity">
+        tools:context="br.ufba.dcc.prontuario.activity.MainActivity">
 
     <ListView
-            android:id="@+id/lista_activities"
+            android:id="@+id/listview_activities"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 

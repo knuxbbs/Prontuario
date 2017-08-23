@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+    <LinearLayout
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/activity_form_consulta"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            tools:context="br.ufba.dcc.prontuario.activity.consulta.FormConsultaActivity">
+
+        <EditText android:id="@+id/form_consulta_editText_data" android:layout_width="match_parent"
+                  android:layout_height="wrap_content" android:hint="Data"/>
+
+        <EditText android:id="@+id/editText_horario" android:layout_width="match_parent"
+                  android:layout_height="wrap_content" android:hint="Horário"/>
+
+        <EditText android:id="@+id/editText_medico" android:layout_width="match_parent"
+                  android:layout_height="wrap_content" android:hint="Médico"/>
+
+        <EditText android:id="@+id/editText_endereco" android:layout_width="match_parent"
+                  android:layout_height="wrap_content" android:hint="Endereço"/>
+
+        <Button
+                android:text="Anexar exames"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:id="@+id/btnAnexarExames"/>
+
+        <Button
+                android:text="Registrar diagnóstico"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:id="@+id/btnRegistrarDiagnostico"/>
+    </LinearLayout>
+</ScrollView>

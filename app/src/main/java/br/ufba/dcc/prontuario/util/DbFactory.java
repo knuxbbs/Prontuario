@@ -3,10 +3,6 @@ package br.ufba.dcc.prontuario.util;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import br.ufba.dcc.prontuario.R;
-
-import java.io.IOException;
-import java.io.InputStream;
 
 /**
  * Created by Bruno on 19/07/2017.
@@ -18,20 +14,6 @@ public class DbFactory extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-        /*InputStream inputStream = context.getResources().openRawResource(R.raw.create_database);
-
-        String queries = "";
-
-        try {
-            queries = IOUtils.toString(inputStream);
-        } catch (IOException e) {
-            Util.logException(e);
-        }
-
-        for (String query : queries.split(";")) {
-            sqLiteDatabase.execSQL(query);
-        }*/
-
         StringBuilder sql = new StringBuilder();
 
         sql.append("CREATE TABLE `Paciente` (");

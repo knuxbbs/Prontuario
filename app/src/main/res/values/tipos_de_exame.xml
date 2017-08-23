@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="tipos_de_exame">
+        <item>Abdominoscopia</item>
+        <item>Abreugrafia</item>
+        <item>Adenograma</item>
+        <item>Análise molecular para síndrome do X frágil</item>
+        <item>Antibiograma</item>
+        <item>Anuscopia</item>
+        <item>Aortografia</item>
+    </string-array>
+</resources>
