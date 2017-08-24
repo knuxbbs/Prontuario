@@ -23,14 +23,13 @@
         <EditText android:id="@+id/editText_endereco" android:layout_width="match_parent"
                   android:layout_height="wrap_content" android:hint="Endereço"/>
 
-        <Button
-                android:text="Anexar exames"
+        <Button android:text="Anexar exames"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" android:id="@+id/btnAnexarExames"/>
 
-        <Button
-                android:text="Registrar diagnóstico"
+        <Button android:text="Registrar diagnóstico"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" android:id="@+id/btnRegistrarDiagnostico"/>
+
     </LinearLayout>
 </ScrollView>

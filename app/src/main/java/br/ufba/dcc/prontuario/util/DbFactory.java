@@ -16,7 +16,7 @@ public class DbFactory extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         StringBuilder sql = new StringBuilder();
 
-        sql.append("CREATE TABLE `Paciente` (");
+        /*sql.append("CREATE TABLE `Paciente` (");
         sql.append("IdPaciente integer NOT NULL PRIMARY KEY,");
         sql.append("Nome varchar(150) NOT NULL,");
         sql.append("DataNascimento datetime NOT NULL,");
@@ -26,16 +26,16 @@ public class DbFactory extends SQLiteOpenHelper {
 
         sql.append("CREATE TABLE `Medico` (");
         sql.append("CRM number NOT NULL PRIMARY KEY,");
-        sql.append("Nome varchar(150) NOT NULL);");
+        sql.append("Nome varchar(150) NOT NULL);");*/
 
         sql.append("CREATE TABLE `Consulta` (");
-        sql.append("Paciente_id integer NOT NULL PRIMARY KEY,");
-        sql.append("Medico_id integer NOT NULL PRIMARY KEY,");
-        sql.append("DataConsulta datetime NOT NULL PRIMARY KEY,");
-        sql.append("FOREIGN KEY(Paciente) REFERENCES Paciente(IdPaciente),");
-        sql.append("FOREIGN KEY(Medico_id) REFERENCES Medico(CRM));");
+        sql.append("IdConsulta int NOT NULL PRIMARY KEY,");
+        sql.append("Data text NOT NULL,");
+        sql.append("Horario text NOT NULL,");
+        sql.append("Medico text,");
+        sql.append("Endereco text);");
 
-        sql.append("CREATE TABLE `Exame` (");
+        /*sql.append("CREATE TABLE `Exame` (");
         sql.append("IdExame integer NOT NULL PRIMARY KEY,");
         sql.append("Tipo varchar(100) NOT NULL,");
         sql.append("Resultado text,");
@@ -70,7 +70,7 @@ public class DbFactory extends SQLiteOpenHelper {
         sql.append("Consulta_id integer NOT NULL PRIMARY KEY,");
         sql.append("Tratamento_id integer NOT NULL PRIMARY KEY,");
         sql.append("FOREIGN KEY(Consulta_id) REFERENCES Consulta(Paciente_id, Medico_id, DataConsulta),");
-        sql.append("FOREIGN KEY(Tratamento_id) REFERENCES Tratamento(IdTratamento));");
+        sql.append("FOREIGN KEY(Tratamento_id) REFERENCES Tratamento(IdTratamento));");*/
 
         sqLiteDatabase.execSQL(sql.toString());
     }
