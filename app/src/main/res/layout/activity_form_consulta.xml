@@ -9,7 +9,20 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
             tools:context="br.ufba.dcc.prontuario.activity.consulta.FormConsultaActivity">
+
+        <TextView android:id="@+id/textView_especialidade" android:textSize="18sp"
+                  android:layout_width="match_parent" android:layout_height="wrap_content"
+                  android:paddingTop="5dp" android:paddingLeft="5dp" android:text="Especialidade médica:"/>
+
+        <Spinner android:id="@+id/spinner_especialidade" android:layout_width="match_parent"
+                 android:layout_height="30dp" android:paddingTop="5dp" android:spinnerMode="dialog"/>
+
+        <EditText android:id="@+id/editText_medico" android:layout_width="match_parent"
+                  android:layout_height="wrap_content" android:hint="Nome do médico"
+                  android:nextFocusUp="@+id/editText_medico" android:nextFocusLeft="@+id/editText_medico"/>
 
         <EditText android:id="@+id/form_consulta_editText_data" android:layout_width="match_parent"
                   android:layout_height="wrap_content" android:hint="Data"/>
@@ -17,13 +30,10 @@
         <EditText android:id="@+id/editText_horario" android:layout_width="match_parent"
                   android:layout_height="wrap_content" android:hint="Horário"/>
 
-        <EditText android:id="@+id/editText_medico" android:layout_width="match_parent"
-                  android:layout_height="wrap_content" android:hint="Médico"/>
-
         <EditText android:id="@+id/editText_endereco" android:layout_width="match_parent"
                   android:layout_height="wrap_content" android:hint="Endereço"/>
 
-        <Button android:text="Anexar exames"
+        <Button android:text="Anexar exames solicitados"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" android:id="@+id/btnAnexarExames"/>
 

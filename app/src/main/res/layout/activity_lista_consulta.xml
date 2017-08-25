@@ -8,12 +8,11 @@
         tools:context="br.ufba.dcc.prontuario.activity.consulta.ListaConsultaActivity">
 
     <ListView
-            android:id="@+id/listview_consulta"
+            android:id="@+id/listview_consultas"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
-    <Button
-            android:id="@+id/btnAdicionar"
+    <Button android:id="@+id/btnAdicionar"
             android:text="+"
             android:textColor="#fff"
             android:textSize="40sp"
@@ -27,7 +26,6 @@
             android:layout_marginBottom="16dp"
             android:background="@drawable/circle"
             android:elevation="6dp"
-            android:stateListAnimator="@null"
-    />
+            android:stateListAnimator="@null"/>
 
 </RelativeLayout>

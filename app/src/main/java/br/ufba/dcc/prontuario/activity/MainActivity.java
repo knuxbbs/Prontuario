@@ -11,17 +11,9 @@ import br.ufba.dcc.prontuario.R;
 import br.ufba.dcc.prontuario.activity.consulta.ListaConsultaActivity;
 import br.ufba.dcc.prontuario.activity.exame.ListaExameActivity;
 import br.ufba.dcc.prontuario.activity.tratamento.ListaTratamentoActivity;
-import br.ufba.dcc.prontuario.dao.PacienteDao;
-import br.ufba.dcc.prontuario.domain.Paciente;
-import br.ufba.dcc.prontuario.util.DbFactory;
-
-import java.util.Date;
-import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    private DbFactory dbFactory = new DbFactory(this);
-    private PacienteDao pacienteDao = new PacienteDao(dbFactory);
     private static final String CONSULTA_MENU_OPTION = "Consultas";
     private static final String EXAME_MENU_OPTION = "Exames";
     private static final String TRATAMENTO_MENU_OPTION = "Tratamentos";
@@ -68,53 +60,5 @@ public class MainActivity extends AppCompatActivity {
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, activityOptions);
 
         listViewActivities.setAdapter(adapter);
-    }
-
-    private void initListView(List<Paciente> listaPaciente) {
-        ListView listViewPacientes = (ListView) findViewById(R.id.listview_activities);
-
-        ArrayAdapter<Paciente> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, listaPaciente);
-
-        listViewPacientes.setAdapter(adapter);
-    }
-
-    private void fillDatabase() {
-        if (!pacienteDao.listar().isEmpty()) return;
-
-        Paciente paciente = new Paciente();
-        paciente.setNome("Bruno");
-        paciente.setDataNascimento(new Date());
-        paciente.setSexo('M');
-        paciente.setPeso(80);
-        paciente.setAltura((float) 1.8);
-
-        pacienteDao.inserir(paciente);
-
-        paciente = new Paciente();
-        paciente.setNome("Bernardo");
-        paciente.setDataNascimento(new Date());
-        paciente.setSexo('M');
-        paciente.setPeso(80);
-        paciente.setAltura((float) 1.8);
-
-        pacienteDao.inserir(paciente);
-
-        paciente = new Paciente();
-        paciente.setNome("Carlos");
-        paciente.setDataNascimento(new Date());
-        paciente.setSexo('M');
-        paciente.setPeso(80);
-        paciente.setAltura((float) 1.8);
-
-        pacienteDao.inserir(paciente);
-
-        paciente = new Paciente();
-        paciente.setNome("Fernando");
-        paciente.setDataNascimento(new Date());
-        paciente.setSexo('M');
-        paciente.setPeso(80);
-        paciente.setAltura((float) 1.8);
-
-        pacienteDao.inserir(paciente);
     }
 }

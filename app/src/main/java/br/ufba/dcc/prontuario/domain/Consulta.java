@@ -1,22 +1,24 @@
 package br.ufba.dcc.prontuario.domain;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
  * Created by Bruno on 19/07/2017.
  */
-public class Consulta {
-    private int id;
+public class Consulta implements Serializable {
+    private long id;
     private String data;
     private String horario;
+    private String especialidade;
     private String medico;
     private String endereco;
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -34,6 +36,14 @@ public class Consulta {
 
     public void setHorario(String horario) {
         this.horario = horario;
+    }
+
+    public String getEspecialidade() {
+        return especialidade;
+    }
+
+    public void setEspecialidade(String especialidade) {
+        this.especialidade = especialidade;
     }
 
     public String getMedico() {
@@ -54,6 +64,6 @@ public class Consulta {
 
     @Override
     public String toString() {
-        return getData() + " - " + getMedico();
+        return getData() + " - " + getEspecialidade() + " - " + getMedico();
     }
 }

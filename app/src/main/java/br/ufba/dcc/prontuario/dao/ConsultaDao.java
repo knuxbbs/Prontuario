@@ -19,6 +19,18 @@ public class ConsultaDao {
         dbFactory = pDbFactory;
     }
 
+    private ContentValues obterDadosDaConsulta(Consulta consulta) {
+        ContentValues values = new ContentValues();
+
+        values.put("Especialidade", consulta.getEspecialidade());
+        values.put("Medico", consulta.getMedico());
+        values.put("Data", consulta.getData());
+        values.put("Horario", consulta.getHorario());
+        values.put("Endereco", consulta.getEndereco());
+
+        return values;
+    }
+
     public void inserir(Consulta consulta) {
         SQLiteDatabase db = dbFactory.getWritableDatabase();
 
@@ -29,17 +41,18 @@ public class ConsultaDao {
 
     public List<Consulta> listar() {
         SQLiteDatabase db = dbFactory.getReadableDatabase();
-        Cursor c = db.rawQuery("SELECT * FROM `Consulta`", null);
+        Cursor c = db.rawQuery("SELECT * FROM Consulta", null);
         List<Consulta> lista = new ArrayList<>();
 
         while (c.moveToNext()) {
             Consulta consulta = new Consulta();
 
-            consulta.setId(c.getInt(c.getColumnIndex("IdConsulta")));
-            consulta.setData(c.getString(c.getColumnIndex("Data")));
-            consulta.setHorario(c.getString(c.getColumnIndex("Horario")));
-            consulta.setMedico(c.getString(c.getColumnIndex("Medico")));
-            consulta.setEndereco(c.getString(c.getColumnIndex("Endereco")));
+            consulta.setId(c.getLong(c.getColumnIndex("idConsulta")));
+            consulta.setEspecialidade(c.getString(c.getColumnIndex("especialidade")));
+            consulta.setMedico(c.getString(c.getColumnIndex("medico")));
+            consulta.setData(c.getString(c.getColumnIndex("data")));
+            consulta.setHorario(c.getString(c.getColumnIndex("horario")));
+            consulta.setEndereco(c.getString(c.getColumnIndex("endereco")));
 
             lista.add(consulta);
         }
@@ -48,16 +61,5 @@ public class ConsultaDao {
         dbFactory.close();
 
         return lista;
-    }
-
-    private ContentValues obterDadosDaConsulta(Consulta consulta) {
-        ContentValues values = new ContentValues();
-
-        values.put("Data", consulta.getData());
-        values.put("Horario", consulta.getHorario());
-        values.put("Medico", consulta.getMedico());
-        values.put("Endereco", consulta.getEndereco());
-
-        return values;
     }
 }

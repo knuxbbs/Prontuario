@@ -29,11 +29,12 @@ public class DbFactory extends SQLiteOpenHelper {
         sql.append("Nome varchar(150) NOT NULL);");*/
 
         sql.append("CREATE TABLE `Consulta` (");
-        sql.append("IdConsulta int NOT NULL PRIMARY KEY,");
-        sql.append("Data text NOT NULL,");
-        sql.append("Horario text NOT NULL,");
-        sql.append("Medico text,");
-        sql.append("Endereco text);");
+        sql.append("idConsulta integer NOT NULL PRIMARY KEY,");
+        sql.append("data varchar(10) NOT NULL,");
+        sql.append("horario varchar(5) NOT NULL,");
+        sql.append("especialidade varchar(80),");
+        sql.append("medico varchar(150),");
+        sql.append("endereco text);");
 
         /*sql.append("CREATE TABLE `Exame` (");
         sql.append("IdExame integer NOT NULL PRIMARY KEY,");

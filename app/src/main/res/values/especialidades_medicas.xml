@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="especialidades_medicas">
+        <item>Angiologista</item>
+        <item>Cardiologista</item>
+        <item>Clínico geral</item>
+        <item>Ginecologista</item>
+        <item>Urologista</item>
+    </string-array>
+</resources>

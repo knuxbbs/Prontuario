@@ -7,6 +7,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TimePicker;
 
 import java.text.SimpleDateFormat;
@@ -74,5 +75,18 @@ public class FormUtils {
                 return false;
             }
         });
+    }
+
+    public static int getSpinnerSelectedIndex(Spinner spinner, String selectedValue){
+        int index = 0;
+
+        for (int i = 0; i < spinner.getCount(); i++){
+            if(spinner.getItemAtPosition(i).toString().equalsIgnoreCase(selectedValue)){
+                index = i;
+                break;
+            }
+        }
+
+        return index;
     }
 }

@@ -1,18 +1,12 @@
 package br.ufba.dcc.prontuario.activity.exame;
 
-import android.app.DatePickerDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.ArrayAdapter;
-import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
 import br.ufba.dcc.prontuario.R;
 import br.ufba.dcc.prontuario.util.FormUtils;
-
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
 
 public class FormExameActivity extends AppCompatActivity {
 
