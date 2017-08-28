@@ -16,7 +16,6 @@ public class MainActivity extends AppCompatActivity {
 
     private static final String CONSULTA_MENU_OPTION = "Consultas";
     private static final String EXAME_MENU_OPTION = "Exames";
-    private static final String TRATAMENTO_MENU_OPTION = "Tratamentos";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
 
         ListView listViewActivities = (ListView) findViewById(R.id.listview_activities);
 
-        String[] mainActivityOptions = new String[]{CONSULTA_MENU_OPTION, EXAME_MENU_OPTION, TRATAMENTO_MENU_OPTION};
+        String[] mainActivityOptions = new String[]{CONSULTA_MENU_OPTION, EXAME_MENU_OPTION};
 
         initListView(mainActivityOptions);
 
@@ -44,10 +43,6 @@ public class MainActivity extends AppCompatActivity {
                     case EXAME_MENU_OPTION:
                         Intent listaExameIntent = new Intent(MainActivity.this, ListaExameActivity.class);
                         startActivity(listaExameIntent);
-                        break;
-                    case TRATAMENTO_MENU_OPTION:
-                        Intent listaTratamentoIntent = new Intent(MainActivity.this, ListaTratamentoActivity.class);
-                        startActivity(listaTratamentoIntent);
                         break;
                 }
             }

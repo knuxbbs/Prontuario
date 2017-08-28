@@ -25,6 +25,7 @@ public class FormUtils {
                 myCalendar.set(Calendar.YEAR, i);
                 myCalendar.set(Calendar.MONTH, i1);
                 myCalendar.set(Calendar.DAY_OF_MONTH, i2);
+
                 SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yy");
                 editText.setText(dateFormat.format(myCalendar.getTime()));
             }
@@ -77,11 +78,11 @@ public class FormUtils {
         });
     }
 
-    public static int getSpinnerSelectedIndex(Spinner spinner, String selectedValue){
+    public static int getSpinnerSelectedIndex(Spinner spinner, String selectedValue) {
         int index = 0;
 
-        for (int i = 0; i < spinner.getCount(); i++){
-            if(spinner.getItemAtPosition(i).toString().equalsIgnoreCase(selectedValue)){
+        for (int i = 0; i < spinner.getCount(); i++) {
+            if (spinner.getItemAtPosition(i).toString().equalsIgnoreCase(selectedValue)) {
                 index = i;
                 break;
             }

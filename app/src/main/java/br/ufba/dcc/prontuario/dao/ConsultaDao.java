@@ -7,6 +7,8 @@ import br.ufba.dcc.prontuario.domain.Consulta;
 import br.ufba.dcc.prontuario.util.DbFactory;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 /**
@@ -59,6 +61,14 @@ public class ConsultaDao {
 
         c.close();
         dbFactory.close();
+
+        //Ordena lista de consultas de acordo com a data.
+        Collections.sort(lista, new Comparator<Consulta>() {
+            @Override
+            public int compare(Consulta c1, Consulta c2) {
+                return c1.getData().compareTo(c2.getData());
+            }
+        });
 
         return lista;
     }
