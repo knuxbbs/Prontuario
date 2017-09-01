@@ -16,7 +16,8 @@ public class DbFactory extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         StringBuilder sql = new StringBuilder();
 
-        /*sql.append("CREATE TABLE `Paciente` (");
+        /*
+        sql.append("CREATE TABLE `Paciente` (");
         sql.append("IdPaciente integer NOT NULL PRIMARY KEY,");
         sql.append("Nome varchar(150) NOT NULL,");
         sql.append("DataNascimento datetime NOT NULL,");
@@ -26,7 +27,8 @@ public class DbFactory extends SQLiteOpenHelper {
 
         sql.append("CREATE TABLE `Medico` (");
         sql.append("CRM number NOT NULL PRIMARY KEY,");
-        sql.append("Nome varchar(150) NOT NULL);");*/
+        sql.append("Nome varchar(150) NOT NULL);");
+        */
 
         sql.append("CREATE TABLE `Consulta` (");
         sql.append("idConsulta integer NOT NULL PRIMARY KEY,");
@@ -36,13 +38,21 @@ public class DbFactory extends SQLiteOpenHelper {
         sql.append("medico varchar(150),");
         sql.append("endereco text);");
 
-        /*sql.append("CREATE TABLE `Exame` (");
-        sql.append("IdExame integer NOT NULL PRIMARY KEY,");
-        sql.append("Tipo varchar(100) NOT NULL,");
-        sql.append("Resultado text,");
-        sql.append("Consulta_id integer,");
-        sql.append("FOREIGN KEY(Consulta_id) REFERENCES Consulta(Paciente_id, Medico_id, DataConsulta));");
+        sqLiteDatabase.execSQL(sql.toString());
 
+        sql = new StringBuilder();
+
+        sql.append("CREATE TABLE `Exame` (");
+        sql.append("idExame integer NOT NULL PRIMARY KEY,");
+        sql.append("data varchar(10) NOT NULL,");
+        sql.append("horario varchar(5) NOT NULL,");
+        sql.append("tipoExame varchar(80),");
+        sql.append("observacoes varchar(150),");
+        sql.append("endereco text);");
+
+        sqLiteDatabase.execSQL(sql.toString());
+
+        /*
         sql.append("CREATE TABLE `Patologia` (");
         sql.append("SID integer NOT NULL PRIMARY KEY,");
         sql.append("Nome varchar(150) NOT NULL);");
@@ -71,9 +81,8 @@ public class DbFactory extends SQLiteOpenHelper {
         sql.append("Consulta_id integer NOT NULL PRIMARY KEY,");
         sql.append("Tratamento_id integer NOT NULL PRIMARY KEY,");
         sql.append("FOREIGN KEY(Consulta_id) REFERENCES Consulta(Paciente_id, Medico_id, DataConsulta),");
-        sql.append("FOREIGN KEY(Tratamento_id) REFERENCES Tratamento(IdTratamento));");*/
-
-        sqLiteDatabase.execSQL(sql.toString());
+        sql.append("FOREIGN KEY(Tratamento_id) REFERENCES Tratamento(IdTratamento));");
+        */
     }
 
     @Override

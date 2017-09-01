@@ -11,17 +11,23 @@ import android.support.annotation.NonNull;
 import android.support.v4.content.FileProvider;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.*;
 import br.ufba.dcc.prontuario.R;
 import br.ufba.dcc.prontuario.activity.consulta.FormConsultaActivity;
 import br.ufba.dcc.prontuario.adapter.ImageGridAdapter;
+import br.ufba.dcc.prontuario.dao.ExameDao;
+import br.ufba.dcc.prontuario.domain.Exame;
+import br.ufba.dcc.prontuario.util.DbFactory;
 import br.ufba.dcc.prontuario.util.FormUtils;
 
 import java.io.File;
 
 public class FormExameActivity extends AppCompatActivity {
 
+    private FormExameHelper formExameHelper;
     private static final int CAMERA_REQUEST_CODE = 1;
     private Intent cameraIntent;
 
@@ -40,6 +46,44 @@ public class FormExameActivity extends AppCompatActivity {
 
         EditText editTextHorario = (EditText) findViewById(R.id.form_exame_editText_horario);
         FormUtils.initTimePicker(FormExameActivity.this, editTextHorario);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_form, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        DbFactory dbFactory = new DbFactory(FormExameActivity.this);
+        String mensagem = "";
+
+        switch (item.getItemId()) {
+            case R.id.menu_form_salvar:
+                ExameDao exameDao = new ExameDao(dbFactory);
+
+                try {
+                    Exame exame = formExameHelper.obterDadosDoFormulario();
+
+                    exameDao.inserir(exame);
+                    mensagem = "Exame " + exame.getData() + " registrado com sucesso.";
+
+                } catch (Exception ex) {
+                    mensagem = ex.getLocalizedMessage();
+
+                } finally {
+                    Toast.makeText(FormExameActivity.this, mensagem, Toast.LENGTH_LONG).show();
+                    Intent listaExameIntent = new Intent(FormExameActivity.this, ListaExameActivity.class);
+                    startActivity(listaExameIntent);
+
+                    finish();
+                }
+
+                break;
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
     private void initSpinner() {

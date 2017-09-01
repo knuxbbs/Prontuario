@@ -5,7 +5,7 @@
 
     <LinearLayout
             xmlns:tools="http://schemas.android.com/tools"
-            android:id="@+id/activity_form_consulta"
+            android:id="@+id/activity_form_exame"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
@@ -28,6 +28,30 @@
 
         <EditText android:id="@+id/form_exame_editText_local" android:layout_width="match_parent"
                   android:layout_height="wrap_content" android:hint="Local"/>
+
+        <!--<FrameLayout android:id="@+id/layout"
+                     android:layout_width="match_parent"
+                     android:layout_height="wrap_content">
+
+            <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                <EditText
+                        android:id="@+id/edit_text_password"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPassword"
+                        android:imeOptions="actionDone"
+                        android:hint="@string/enter_password_hint"
+                        android:paddingRight="30dp"
+                        style="@style/ScreenPasswordEditText"/>
+
+            </android.support.design.widget.TextInputLayout>
+
+            <Button android:id="@+id/btnBuscarEndereco" android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+        </FrameLayout>-->
 
         <EditText android:id="@+id/editText_observacoes" android:layout_width="match_parent"
                   android:layout_height="wrap_content" android:hint="Observações"/>

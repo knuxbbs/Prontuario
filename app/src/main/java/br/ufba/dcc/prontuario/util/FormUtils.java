@@ -22,6 +22,7 @@ public class FormUtils {
 
         final Calendar myCalendar = Calendar.getInstance();
 
+        /*
         final AlertDialog.Builder builder = new AlertDialog.Builder(context);
         DatePicker picker = new DatePicker(context);
         picker.setCalendarViewShown(false);
@@ -29,20 +30,21 @@ public class FormUtils {
         builder.setTitle("Informe a data");
         builder.setView(picker);
         builder.setCancelable(false);
+        */
 
-        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+        /*builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
 
             }
-        });
+        });*/
 
-        builder.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+        /*builder.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 dialogInterface.cancel();
             }
-        });
+        });*/
 
         final DatePickerDialog.OnDateSetListener listener = new DatePickerDialog.OnDateSetListener() {
             @Override
@@ -60,13 +62,13 @@ public class FormUtils {
             @Override
             public boolean onTouch(View view, MotionEvent motionEvent) {
                 if (motionEvent.getAction() == MotionEvent.ACTION_DOWN) {
-                    /*DatePickerDialog datePicker = new DatePickerDialog(context, listener,
+                    DatePickerDialog datePicker = new DatePickerDialog(context, listener,
                             myCalendar.get(Calendar.YEAR), myCalendar.get(Calendar.MONTH), myCalendar.get(Calendar.DAY_OF_MONTH));
 
                     datePicker.setTitle("Informe a data");
-                    datePicker.show();*/
+                    datePicker.show();
 
-                    builder.show();
+                    //builder.show();
                 }
 
                 return false;
