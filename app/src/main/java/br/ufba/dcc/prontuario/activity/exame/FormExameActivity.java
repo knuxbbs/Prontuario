@@ -12,11 +12,10 @@ import android.support.v4.content.FileProvider;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.Spinner;
+import android.widget.*;
 import br.ufba.dcc.prontuario.R;
+import br.ufba.dcc.prontuario.activity.consulta.FormConsultaActivity;
+import br.ufba.dcc.prontuario.adapter.ImageGridAdapter;
 import br.ufba.dcc.prontuario.util.FormUtils;
 
 import java.io.File;
@@ -34,9 +33,13 @@ public class FormExameActivity extends AppCompatActivity {
 
         initSpinner();
         initButton();
+        initGridView();
 
         EditText editTextData = (EditText) findViewById(R.id.form_exame_editText_data);
         FormUtils.initDatePicker(FormExameActivity.this, editTextData);
+
+        EditText editTextHorario = (EditText) findViewById(R.id.form_exame_editText_horario);
+        FormUtils.initTimePicker(FormExameActivity.this, editTextHorario);
     }
 
     private void initSpinner() {
@@ -95,5 +98,12 @@ public class FormExameActivity extends AppCompatActivity {
         }
 
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+    }
+
+    private void initGridView(){
+        GridView imageGridView = (GridView) findViewById(R.id.grid_view_image);
+
+        ImageGridAdapter imageGridAdapter = new ImageGridAdapter(FormExameActivity.this, new String[]{});
+        imageGridView.setAdapter(imageGridAdapter);
     }
 }

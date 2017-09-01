@@ -1,8 +1,11 @@
 package br.ufba.dcc.prontuario.util;
 
+
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.support.v7.app.AlertDialog;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.DatePicker;
@@ -18,6 +21,28 @@ public class FormUtils {
         editText.setKeyListener(null);
 
         final Calendar myCalendar = Calendar.getInstance();
+
+        final AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        DatePicker picker = new DatePicker(context);
+        picker.setCalendarViewShown(false);
+
+        builder.setTitle("Informe a data");
+        builder.setView(picker);
+        builder.setCancelable(false);
+
+        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+
+            }
+        });
+
+        builder.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                dialogInterface.cancel();
+            }
+        });
 
         final DatePickerDialog.OnDateSetListener listener = new DatePickerDialog.OnDateSetListener() {
             @Override
@@ -35,11 +60,13 @@ public class FormUtils {
             @Override
             public boolean onTouch(View view, MotionEvent motionEvent) {
                 if (motionEvent.getAction() == MotionEvent.ACTION_DOWN) {
-                    DatePickerDialog datePicker = new DatePickerDialog(context, listener,
+                    /*DatePickerDialog datePicker = new DatePickerDialog(context, listener,
                             myCalendar.get(Calendar.YEAR), myCalendar.get(Calendar.MONTH), myCalendar.get(Calendar.DAY_OF_MONTH));
 
                     datePicker.setTitle("Informe a data");
-                    datePicker.show();
+                    datePicker.show();*/
+
+                    builder.show();
                 }
 
                 return false;

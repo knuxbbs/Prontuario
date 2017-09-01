@@ -27,11 +27,11 @@
         <EditText android:id="@+id/form_consulta_editText_data" android:layout_width="match_parent"
                   android:layout_height="wrap_content" android:hint="Data"/>
 
-        <EditText android:id="@+id/editText_horario" android:layout_width="match_parent"
+        <EditText android:id="@+id/form_consulta_editText_horario" android:layout_width="match_parent"
                   android:layout_height="wrap_content" android:hint="Horário"/>
 
-        <EditText android:id="@+id/editText_endereco" android:layout_width="match_parent"
-                  android:layout_height="wrap_content" android:hint="Endereço"/>
+        <EditText android:id="@+id/form_consulta_editText_local" android:layout_width="match_parent"
+                  android:layout_height="wrap_content" android:hint="Local"/>
 
         <Button android:text="Anexar exames solicitados"
                 android:layout_width="match_parent"

@@ -1,14 +1,12 @@
 package br.ufba.dcc.prontuario.activity.consulta;
 
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.widget.ArrayAdapter;
-import android.widget.EditText;
-import android.widget.Spinner;
-import android.widget.Toast;
+import android.view.*;
+import android.widget.*;
 import br.ufba.dcc.prontuario.R;
 import br.ufba.dcc.prontuario.dao.ConsultaDao;
 import br.ufba.dcc.prontuario.domain.Consulta;
@@ -29,12 +27,13 @@ public class FormConsultaActivity extends AppCompatActivity {
         formConsultaHelper = new FormConsultaHelper(this);
 
         initSpinner();
+        initButtons();
 
         EditText editTextData = (EditText) findViewById(R.id.form_consulta_editText_data);
         FormUtils.initDatePicker(FormConsultaActivity.this, editTextData);
 
-        EditText editTexHorario = (EditText) findViewById(R.id.editText_horario);
-        FormUtils.initTimePicker(FormConsultaActivity.this, editTexHorario);
+        EditText editTextHorario = (EditText) findViewById(R.id.form_consulta_editText_horario);
+        FormUtils.initTimePicker(FormConsultaActivity.this, editTextHorario);
 
         Consulta consulta = (Consulta) getIntent().getSerializableExtra("Consulta");
 
@@ -88,5 +87,40 @@ public class FormConsultaActivity extends AppCompatActivity {
 
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
+    }
+
+    private void initButtons() {
+        Button btnRegistrarDiagnostico = (Button) findViewById(R.id.btnRegistrarDiagnostico);
+
+        btnRegistrarDiagnostico.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                initDiagnosticoDialog();
+            }
+        });
+    }
+
+    private void initDiagnosticoDialog() {
+        LayoutInflater inflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
+        View layout = inflater.inflate(R.layout.dialog_diagnotico, (ViewGroup) findViewById(R.id.dialog_diagnostico_root));
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(FormConsultaActivity.this);
+        builder.setView(layout);
+
+        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                dialogInterface.dismiss();
+            }
+        });
+
+        builder.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                dialogInterface.dismiss();
+            }
+        });
+
+        builder.show();
     }
 }

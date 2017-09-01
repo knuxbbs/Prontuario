@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:id="@+id/dialog_diagnostico_root">
+
+    <TextView android:id="@+id/textView_especialidade" android:textSize="18sp"
+              android:layout_width="match_parent" android:layout_height="wrap_content"
+              android:paddingTop="5dp" android:paddingLeft="5dp"
+              android:text="Registre aqui o diagnóstico fornecido pelo médico:"/>
+
+    <EditText android:id="@+id/editText_diagnostico"
+              android:layout_width="match_parent" android:layout_height="0dp"
+              android:inputType="textMultiLine" android:minLines="5"
+              android:gravity="top" android:layout_weight="1"/>
+
+</LinearLayout>

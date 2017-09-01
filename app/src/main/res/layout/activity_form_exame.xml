@@ -9,6 +9,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
             tools:context="br.ufba.dcc.prontuario.activity.exame.FormExameActivity">
 
         <TextView android:id="@+id/textView_tipoExame" android:textSize="18sp"
@@ -21,11 +23,21 @@
         <EditText android:id="@+id/form_exame_editText_data" android:layout_width="match_parent"
                   android:layout_height="wrap_content" android:hint="Data"/>
 
+        <EditText android:id="@+id/form_exame_editText_horario" android:layout_width="match_parent"
+                  android:layout_height="wrap_content" android:hint="Horário"/>
+
+        <EditText android:id="@+id/form_exame_editText_local" android:layout_width="match_parent"
+                  android:layout_height="wrap_content" android:hint="Local"/>
+
         <EditText android:id="@+id/editText_observacoes" android:layout_width="match_parent"
                   android:layout_height="wrap_content" android:hint="Observações"/>
 
         <Button android:text="Anexar imagens"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" android:id="@+id/btnAnexarImagens"/>
+
+        <GridView android:id="@+id/grid_view_image"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"/>
     </LinearLayout>
 </ScrollView>
