@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ListView listViewActivities = (ListView) findViewById(R.id.listview_activities);
+        ListView listViewActivities = findViewById(R.id.listview_activities);
 
         String[] mainActivityOptions = new String[]{CONSULTA_MENU_OPTION, EXAME_MENU_OPTION};
 
@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initListView(String[] activityOptions) {
-        ListView listViewActivities = (ListView) findViewById(R.id.listview_activities);
+        ListView listViewActivities = findViewById(R.id.listview_activities);
 
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, activityOptions);
 

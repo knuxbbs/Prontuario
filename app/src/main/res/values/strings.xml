@@ -1,4 +1,4 @@
 <resources>
-    <string name="app_name">Meu Prontuário</string>
+    <string name="app_name">Prontuário</string>
     <string name="spinner_especialidade_prompt">Especialidade médica</string>
 </resources>

@@ -29,10 +29,10 @@ public class FormConsultaActivity extends AppCompatActivity {
         initSpinner();
         initButtons();
 
-        EditText editTextData = (EditText) findViewById(R.id.form_consulta_editText_data);
+        EditText editTextData = findViewById(R.id.form_consulta_editText_data);
         FormUtils.initDatePicker(FormConsultaActivity.this, editTextData);
 
-        EditText editTextHorario = (EditText) findViewById(R.id.form_consulta_editText_horario);
+        EditText editTextHorario = findViewById(R.id.form_consulta_editText_horario);
         FormUtils.initTimePicker(FormConsultaActivity.this, editTextHorario);
 
         Consulta consulta = (Consulta) getIntent().getSerializableExtra("Consulta");
@@ -81,7 +81,7 @@ public class FormConsultaActivity extends AppCompatActivity {
     }
 
     private void initSpinner() {
-        Spinner spinner = (Spinner) findViewById(R.id.spinner_especialidade);
+        Spinner spinner = findViewById(R.id.spinner_especialidade);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(FormConsultaActivity.this,
                 R.array.especialidades_medicas, android.R.layout.simple_spinner_item);
 
@@ -90,7 +90,7 @@ public class FormConsultaActivity extends AppCompatActivity {
     }
 
     private void initButtons() {
-        Button btnRegistrarDiagnostico = (Button) findViewById(R.id.btnRegistrarDiagnostico);
+        Button btnRegistrarDiagnostico = findViewById(R.id.btnRegistrarDiagnostico);
 
         btnRegistrarDiagnostico.setOnClickListener(new View.OnClickListener() {
             @Override
