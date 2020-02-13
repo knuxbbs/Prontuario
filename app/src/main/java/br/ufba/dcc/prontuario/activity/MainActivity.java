@@ -1,7 +1,7 @@
 package br.ufba.dcc.prontuario.activity;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -10,7 +10,6 @@ import android.widget.ListView;
 import br.ufba.dcc.prontuario.R;
 import br.ufba.dcc.prontuario.activity.consulta.ListaConsultaActivity;
 import br.ufba.dcc.prontuario.activity.exame.ListaExameActivity;
-import br.ufba.dcc.prontuario.activity.tratamento.ListaTratamentoActivity;
 
 public class MainActivity extends AppCompatActivity {
 
