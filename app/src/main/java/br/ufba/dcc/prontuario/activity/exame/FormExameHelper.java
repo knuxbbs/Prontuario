@@ -23,11 +23,11 @@ public class FormExameHelper extends AppCompatActivity {
 
 
     public FormExameHelper(FormExameActivity formExameActivity) {
-        editTextData = (EditText) formExameActivity.findViewById(R.id.form_exame_editText_data);
-        editTextHorario = (EditText) formExameActivity.findViewById(R.id.form_exame_editText_horario);
-        spinnerTipoExame = (Spinner) formExameActivity.findViewById(R.id.spinner_tipoExame);
-        editTextEndereco = (EditText) formExameActivity.findViewById(R.id.form_exame_editText_local);
-        editTextObservacoes = (EditText) formExameActivity.findViewById(R.id.editText_observacoes);
+        editTextData = formExameActivity.findViewById(R.id.form_exame_editText_data);
+        editTextHorario = formExameActivity.findViewById(R.id.form_exame_editText_horario);
+        spinnerTipoExame = formExameActivity.findViewById(R.id.spinner_tipoExame);
+        editTextEndereco = formExameActivity.findViewById(R.id.form_exame_editText_local);
+        editTextObservacoes = formExameActivity.findViewById(R.id.editText_observacoes);
 
         exame = new Exame();
     }

@@ -16,11 +16,11 @@ public class FormConsultaHelper extends AppCompatActivity {
     private Consulta consulta;
 
     public FormConsultaHelper(FormConsultaActivity formConsultaActivity) {
-        editTextData = (EditText) formConsultaActivity.findViewById(R.id.form_consulta_editText_data);
-        editTextHorario = (EditText) formConsultaActivity.findViewById(R.id.form_consulta_editText_horario);
-        spinnerEspecialidade = (Spinner) formConsultaActivity.findViewById(R.id.spinner_especialidade);
-        editTextMedico = (EditText) formConsultaActivity.findViewById(R.id.editText_medico);
-        editTextEndereco = (EditText) formConsultaActivity.findViewById(R.id.form_consulta_editText_local);
+        editTextData = formConsultaActivity.findViewById(R.id.form_consulta_editText_data);
+        editTextHorario = formConsultaActivity.findViewById(R.id.form_consulta_editText_horario);
+        spinnerEspecialidade = formConsultaActivity.findViewById(R.id.spinner_especialidade);
+        editTextMedico = formConsultaActivity.findViewById(R.id.editText_medico);
+        editTextEndereco = formConsultaActivity.findViewById(R.id.form_consulta_editText_local);
 
         consulta = new Consulta();
     }

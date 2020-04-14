@@ -26,7 +26,7 @@ public class ImageGridAdapter extends BaseAdapter {
             view = inflater.inflate(R.layout.image_grid_cell, null);
         }
 
-        ImageButton imageButton = (ImageButton) view.findViewById(R.id.grid_image_button);
+        ImageButton imageButton = view.findViewById(R.id.grid_image_button);
         imageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

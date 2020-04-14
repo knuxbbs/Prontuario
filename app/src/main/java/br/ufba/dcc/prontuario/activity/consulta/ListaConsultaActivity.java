@@ -28,7 +28,7 @@ public class ListaConsultaActivity extends AppCompatActivity {
 
         initButton();
 
-        listViewConsultas = (ListView) findViewById(R.id.listview_consultas);
+        listViewConsultas = findViewById(R.id.listview_consultas);
 
         listViewConsultas.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -50,7 +50,7 @@ public class ListaConsultaActivity extends AppCompatActivity {
     }
 
     private void initButton() {
-        Button btnAdicionar = (Button) findViewById(R.id.btnAdicionar);
+        Button btnAdicionar = findViewById(R.id.btnAdicionar);
 
         btnAdicionar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -68,7 +68,7 @@ public class ListaConsultaActivity extends AppCompatActivity {
 
         List<Consulta> listaConsultas = consultaDao.listar();
 
-        listViewConsultas = (ListView) findViewById(R.id.listview_consultas);
+        listViewConsultas = findViewById(R.id.listview_consultas);
 
         ArrayAdapter<Consulta> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, listaConsultas);
 

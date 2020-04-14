@@ -1,13 +1,13 @@
 package br.ufba.dcc.prontuario.activity.exame;
 
 import android.content.Intent;
-import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import androidx.appcompat.app.AppCompatActivity;
 import br.ufba.dcc.prontuario.R;
 import br.ufba.dcc.prontuario.dao.ExameDao;
 import br.ufba.dcc.prontuario.domain.Exame;
@@ -28,7 +28,7 @@ public class ListaExameActivity extends AppCompatActivity {
 
         initButton();
 
-        listViewExames = (ListView) findViewById(R.id.listview_exames);
+        listViewExames = findViewById(R.id.listview_exames);
 
         listViewExames.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -54,7 +54,7 @@ public class ListaExameActivity extends AppCompatActivity {
 
         List<Exame> listaExames = exameDao.listar();
 
-        listViewExames = (ListView) findViewById(R.id.listview_exames);
+        listViewExames = findViewById(R.id.listview_exames);
 
         ArrayAdapter<Exame> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, listaExames);
 
@@ -64,7 +64,7 @@ public class ListaExameActivity extends AppCompatActivity {
     }
 
     private void initButton() {
-        Button btnAdicionar = (Button) findViewById(R.id.btnAdicionar);
+        Button btnAdicionar = findViewById(R.id.btnAdicionar);
 
         btnAdicionar.setOnClickListener(new View.OnClickListener() {
             @Override

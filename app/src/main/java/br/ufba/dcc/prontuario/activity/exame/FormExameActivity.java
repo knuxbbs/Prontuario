@@ -40,10 +40,10 @@ public class FormExameActivity extends AppCompatActivity {
         initButton();
         initGridView();
 
-        EditText editTextData = (EditText) findViewById(R.id.form_exame_editText_data);
+        EditText editTextData = findViewById(R.id.form_exame_editText_data);
         FormUtils.initDatePicker(FormExameActivity.this, editTextData);
 
-        EditText editTextHorario = (EditText) findViewById(R.id.form_exame_editText_horario);
+        EditText editTextHorario = findViewById(R.id.form_exame_editText_horario);
         FormUtils.initTimePicker(FormExameActivity.this, editTextHorario);
     }
 
@@ -86,7 +86,7 @@ public class FormExameActivity extends AppCompatActivity {
     }
 
     private void initSpinner() {
-        Spinner spinner = (Spinner) findViewById(R.id.spinner_tipoExame);
+        Spinner spinner = findViewById(R.id.spinner_tipoExame);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(FormExameActivity.this,
                 R.array.tipos_de_exame, android.R.layout.simple_spinner_item);
 
@@ -95,7 +95,7 @@ public class FormExameActivity extends AppCompatActivity {
     }
 
     private void initButton() {
-        Button btnAnexarImagens = (Button) findViewById(R.id.btnAnexarImagens);
+        Button btnAnexarImagens = findViewById(R.id.btnAnexarImagens);
 
         btnAnexarImagens.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -144,7 +144,7 @@ public class FormExameActivity extends AppCompatActivity {
     }
 
     private void initGridView(){
-        GridView imageGridView = (GridView) findViewById(R.id.grid_view_image);
+        GridView imageGridView = findViewById(R.id.grid_view_image);
 
         ImageGridAdapter imageGridAdapter = new ImageGridAdapter(FormExameActivity.this, new String[]{});
         imageGridView.setAdapter(imageGridAdapter);
